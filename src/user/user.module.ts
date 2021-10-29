@@ -13,9 +13,9 @@ import { UsersService } from './users.service';
       session: false,
     }),
     JwtModule.register({
-      secret: 'hard!to-guess_secret', // process.env.SECRETKEY
+      secret: process.env.SECRET_KEY,
       signOptions: {
-        expiresIn: "10h", //process.env.EXPIRESIN
+        expiresIn: process.env.TOKEN_EXPIRES_IN,
       },
     })],
     providers: [UsersService],

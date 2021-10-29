@@ -48,7 +48,7 @@ export class AuthService {
     }
 
     private _createToken({ name, email }: DetailUserDto): JwtResponse {
-        const expiresIn = '10h';
+        const expiresIn = process.env.TOKEN_EXPIRES_IN;
         const user: JwtPayload = { name, email };
         const accessToken = this.jwtService.sign(user);
         return {

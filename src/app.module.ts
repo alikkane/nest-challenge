@@ -5,9 +5,10 @@ import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ProductsModule, MongooseModule.forRoot("mongodb://db_mongo:27017/test_db"), UserModule, AuthModule],
+  imports: [ConfigModule.forRoot(), ProductsModule, MongooseModule.forRoot(`mongodb://db_mongo:27017/${process.env.DB_NAME}`), UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

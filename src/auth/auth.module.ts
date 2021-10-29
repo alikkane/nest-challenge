@@ -14,11 +14,13 @@ import { AuthController } from './auth.controller';
             property: 'user',
             session: false,
         }),
-        JwtModule.register({
-            secret: 'hard!to-guess_secret', // process.env.SECRETKEY
-            signOptions: {
-                expiresIn: "10h", //process.env.EXPIRESIN
-            },
+        JwtModule.registerAsync({
+            useFactory: () => ({
+                secret: process.env.SECRET_KEY,
+                signOptions: {
+                    expiresIn: process.env.TOKEN_EXPIRES_IN,
+                }
+            }),
         }),
     ],
     providers: [AuthService, JwtStrategy],
