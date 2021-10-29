@@ -1,5 +1,6 @@
 # nest-challenge
 
+copier le fichier .env.example et le renommer .env <br/>
 docker-compose build <br />
 docker-compose up -d <br />
 http://localhost:3000/swagger ==> pour accéder à la documentation de l'api <br />
