@@ -49,6 +49,6 @@ describe('ProductsService', () => {
   });
 
   it('should return one event', async () => {
-    expect(await service.findOne('53d53d2s')).toEqual(product);
+    expect(await service.findOne('A0001')).toEqual(product);
   });
 });

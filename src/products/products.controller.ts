@@ -18,7 +18,7 @@ export class ProductsController {
   }
 
   @ApiCreatedResponse({type: Product})
-  @UseGuards(AuthGuard())
+  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth('JWT-auth')
   @Post()
   async create(@Body() createProductDto: CreateProductDto): Promise<Product> {
